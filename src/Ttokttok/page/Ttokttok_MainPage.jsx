@@ -206,11 +206,11 @@ const Ttokttok_MainPage = () => {
             <AbsoluteIcn src={WriteIcn} />
           </TtokttokWrite>
         </TtokttokContainer>
-        <img
+        {/* <img
           onClick={() => alert("준비 중인 서비스입니다.")}
           src={Chat}
           style={{ width: "100%", objectFit: "cover", cursor: "pointer" }}
-        />
+        /> */}
       </ContentContainer>
       <NavBar />
     </Container>

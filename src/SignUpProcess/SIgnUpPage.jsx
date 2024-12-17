@@ -335,7 +335,7 @@ const SignUpPage = () => {
             {/* <RowWrapper> */}
             <InputElement
               type="text"
-              placeholder="이메일 입력"
+              placeholder="아이디 입력"
               value={email}
               onChange={handleEmailChange}
               checked={correctCode}
@@ -506,20 +506,21 @@ const SignUpPage = () => {
       <div style={{ width: "100%", padding: "0px 25px 40px 20px" }}>
         <PrimaryButton
           state={
-            isRedundant === "ok" &&
-            isValidPassword &&
-            isMatch &&
-            isValidName
+            isRedundant === "ok" && isValidPassword && isMatch && isValidName
               ? "active"
               : null
           }
           buttonText="다음"
           onClick={
-            isRedundant === "ok" &&
-            isValidPassword &&
-            isMatch &&
-            isValidName
-              ? () => navigate("/selectMode", {state: { loginId: email, password: password, username: nickname }})
+            isRedundant === "ok" && isValidPassword && isMatch && isValidName
+              ? () =>
+                  navigate("/selectMode", {
+                    state: {
+                      loginId: email,
+                      password: password,
+                      username: nickname,
+                    },
+                  })
               : null
           }
         ></PrimaryButton>

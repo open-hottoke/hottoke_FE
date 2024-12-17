@@ -106,15 +106,7 @@ const MonthlyCostList = styled.div`
 `;
 
 const MonthlyCostPage = () => {
-  const results = [
-    "윤호야",
-    "이렇게 하는 게",
-    "맞는 지 모르겠지만",
-    "아닌 거 같긴 한데",
-    "아직 map함수를 이렇게 밖에",
-    "사용할 줄 모르겠다",
-    "무지해서 미안하다",
-  ];
+  const results = [11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
 
   return (
     <div
@@ -135,10 +127,12 @@ const MonthlyCostPage = () => {
         {results.map((index) => (
           <div key={index} style={{ width: "100%", gap: "2px" }}>
             <RowWrapper>
-              <YearMonth>2024년 10월</YearMonth>
+              <YearMonth>2024년 {index}월</YearMonth>
               <Cost>500,000원</Cost>
             </RowWrapper>
-            <DetailDate style={{ alignItems: "right" }}>2024.10.11</DetailDate>
+            <DetailDate style={{ alignItems: "right" }}>
+              2024.{index}.1
+            </DetailDate>
           </div>
         ))}
       </MonthlyCostList>

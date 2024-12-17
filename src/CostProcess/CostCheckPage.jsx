@@ -49,7 +49,7 @@ const CostCheckPage = () => {
   };
 
   return (
-    <Container className="InitProcess">
+    <Container style={{ overflow: "scroll" }} className="InitProcess">
       <Header headerTitle="내역 보기" />
       <RowWrapper>
         <CostCheckButton

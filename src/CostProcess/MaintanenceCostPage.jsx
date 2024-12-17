@@ -186,9 +186,29 @@ const MaintanenceCost = () => {
     setIsClick(buttonType);
   };
 
-  const result01 = ["이거는", "상세 내역", "", "", "", "", ""];
+  const result01 = [
+    { 항목: "일반관리비", 금액: 21070, 변화: "3,520원 증가" },
+    { 항목: "소독비", 금액: 1250, 변화: "-" },
+    { 항목: "승강기유지비", 금액: 1550, 변화: "-" },
+    { 항목: "수선비", 금액: 2260, 변화: "100원 감소" },
+    { 항목: "화재보험료", 금액: 21070, 변화: "3,520원 증가" },
+    { 항목: "청소비", 금액: 21070, 변화: "3,520원 증가" },
+    { 항목: "장기수선충당금", 금액: 21070, 변화: "3,520원 증가" },
+    { 항목: "음식물수수료", 금액: 21070, 변화: "3,520원 증가" },
+    { 항목: "경비비", 금액: 21070, 변화: "-" },
+  ];
 
-  const result02 = ["이거는", "월별 내역", "", "", "", "", ""];
+  const result02 = [
+    { 월: "2024년 10월", 총합계: 130410, 날짜: "2024.10.11" },
+    { 월: "2024년 9월", 총합계: 132100, 날짜: "2024.9.11" },
+    { 월: "2024년 8월", 총합계: 141020, 날짜: "2024.8.11" },
+    { 월: "2024년 7월", 총합계: 140410, 날짜: "2024.7.11" },
+    { 월: "2024년 6월", 총합계: 135210, 날짜: "2024.6.11" },
+    { 월: "2024년 5월", 총합계: 134230, 날짜: "2024.5.11" },
+    { 월: "2024년 4월", 총합계: 138209, 날짜: "2024.4.11" },
+    { 월: "2024년 3월", 총합계: 141200, 날짜: "2024.3.11" },
+    { 월: "2024년 2월", 총합계: 130230, 날짜: "2024.2.11" },
+  ];
 
   return (
     <div
@@ -231,10 +251,10 @@ const MaintanenceCost = () => {
           {result01.map((item, index) => (
             <div key={index} style={{ width: "100%", gap: "2px" }}>
               <RowWrapper>
-                <YearMonth>일반관리비</YearMonth>
-                <Cost>21,070원</Cost>
+                <YearMonth>{item.항목}</YearMonth>
+                <Cost>{item.금액}원</Cost>
               </RowWrapper>
-              <ComparePrevious>3,520원 증가</ComparePrevious>
+              <ComparePrevious>{item.변화}</ComparePrevious>
             </div>
           ))}
         </MaintanenceCostList>
@@ -245,10 +265,10 @@ const MaintanenceCost = () => {
           {result02.map((item, index) => (
             <div key={index} style={{ width: "100%", gap: "2px" }}>
               <RowWrapper>
-                <YearMonth>2024년 10월</YearMonth>
-                <Cost>130,410원</Cost>
+                <YearMonth>{item.월}</YearMonth>
+                <Cost>{item.총합계}원</Cost>
               </RowWrapper>
-              <DetailDate>2024.10.11</DetailDate>
+              <DetailDate>{item.날짜}</DetailDate>
             </div>
           ))}
         </MaintanenceCostList>

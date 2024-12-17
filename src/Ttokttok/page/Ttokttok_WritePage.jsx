@@ -153,7 +153,7 @@ const WordCountContainer = styled.div`
   justify-content: flex-end;
 `;
 
-const Tttokttok_WritePage = () => {
+const Ttokttok_WritePage = () => {
   const BASE_URL = import.meta.env.VITE_BASE_URL;
   const token = useRecoilValue(authToken);
 
@@ -424,4 +424,4 @@ const Tttokttok_WritePage = () => {
   );
 };
 
-export default Tttokttok_WritePage;
+export default Ttokttok_WritePage;

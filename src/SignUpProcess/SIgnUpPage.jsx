@@ -477,7 +477,7 @@ const SignUpPage = () => {
             <RowWrapper>
               <InputElement
                 type={"text"}
-                placeholder="예) 101동 101호"
+                placeholder="예) 하케"
                 value={nickname}
                 onChange={handleNicknameChange}
                 isValid={isValidName}

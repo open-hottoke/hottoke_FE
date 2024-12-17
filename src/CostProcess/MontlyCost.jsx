@@ -113,7 +113,7 @@ const MonthlyCost = () => {
       style={{ width: "100%", position: "absolute", top: "140px", zIndex: "1" }}
     >
       <RecentYearMonth style={{ margin: "24px 0px 0px 24px" }}>
-        2024년 10월분
+        2024년 11월분
       </RecentYearMonth>
       <RowWrapper style={{ padding: "0px 24px 20px 24px" }}>
         <RecentMonthlyCost>500,000원</RecentMonthlyCost>

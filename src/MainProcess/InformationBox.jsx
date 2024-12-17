@@ -68,7 +68,7 @@ const InformationBox = () => {
       <Address>{address}</Address>
       <div style={{ width: "100%", height: "78px" }} />
       <SmallFont style={{ textAlign: "left", color: " #1f1f1f" }}>
-        2024년 10월분
+        2024년 11월분
       </SmallFont>
       <RowGroupWrapper style={{ marginTop: "10px" }}>
         <FeeInromation>월세</FeeInromation>

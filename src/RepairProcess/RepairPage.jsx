@@ -116,11 +116,11 @@ const CheckImg = styled.img`
 `;
 
 const ImgContainer = styled.div`
-margin-top: 9px;
+  margin-top: 9px;
   width: 100%;
   display: flex;
   justify-content: space-between;
-`
+`;
 
 const ExampleImg = styled.img`
   width: 100px;
@@ -128,46 +128,46 @@ const ExampleImg = styled.img`
 `;
 
 const UserInfoContainer = styled.div`
-margin-top: 7px;
+  margin-top: 7px;
   width: 100%;
   display: flex;
   justify-content: space-between;
-`
+`;
 
 const ProfileImg = styled.img`
   width: 24px;
-height: 24px;
-border-radius: 24px;
-`
+  height: 24px;
+  border-radius: 24px;
+`;
 
 const ColumnWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin-left: 5px;
-`
+`;
 
 const Name = styled.span`
-  color: var(--Basic-GrayScale-Gray-800, #1F1F1F);
+  color: var(--Basic-GrayScale-Gray-800, #1f1f1f);
 
-/* Caption1 */
-font-family: Pretendard;
-font-size: 12px;
-font-style: normal;
-font-weight: 400;
-line-height: 18px; /* 150% */
-`
+  /* Caption1 */
+  font-family: Pretendard;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 150% */
+`;
 
 const Price = styled.span`
   color: var(--Basic-GrayScale-Gray-600, #565656);
 
-/* Caption2 */
-font-family: Pretendard;
-font-size: 11px;
-font-style: normal;
-font-weight: 400;
-line-height: 18px; /* 163.636% */
-`
+  /* Caption2 */
+  font-family: Pretendard;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 163.636% */
+`;
 
 const TagContainer = styled.div`
   display: flex;
@@ -175,35 +175,35 @@ const TagContainer = styled.div`
   row-gap: 3px;
   justify-content: space-between;
   margin-top: 5px;
-`
+`;
 
-const TagBox =styled.div`
+const TagBox = styled.div`
   display: flex;
-padding: 0px 8px;
-justify-content: center;
-align-items: center;
-border-radius: 30px;
-border: 1px solid var(--Basic-GrayScale-Gray-600, #565656);
-color: var(--Basic-GrayScale-Gray-600, #565656);
-font-size: 11px;
-font-weight: 400;
-line-height: 18px; /* 163.636% */
-`
+  padding: 0px 8px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  border: 1px solid var(--Basic-GrayScale-Gray-600, #565656);
+  color: var(--Basic-GrayScale-Gray-600, #565656);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 18px; /* 163.636% */
+`;
 
 const ScoreContainer = styled.div`
   display: flex;
   gap: 5px;
   color: var(--Basic-GrayScale-Gray-600, #565656);
-font-size: 12px;
-font-weight: 600;
-line-height: 18px; /* 150% */
-`
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px; /* 150% */
+`;
 
-const StarImg =styled.img`
+const StarImg = styled.img`
   width: 12px;
   height: 14px;
   padding-top: 3px;
-`
+`;
 
 const RepairPage = () => {
   const BASE_URL = import.meta.env.VITE_BASE_URL;
@@ -232,7 +232,7 @@ const RepairPage = () => {
   }, []);
 
   return (
-    <Container className="MainProcess">
+    <Container style={{ overflowX: "hidden" }} className="MainProcess">
       <RoundBox style={{ padding: "64px 24px 28px 24px" }}>
         <RowWrapper style={{ margin: "0px 4px" }}>
           <Title>수리/공사</Title>
@@ -286,60 +286,60 @@ const RepairPage = () => {
         이런 업체는 어떠세요?
       </SmallFont>
       <RecommendContainer>
-      <RecommendBox style={{ margin: "14px 0px 0px 15px" }}>
-        <TitleContainer>
-          <CheckImg src={valid} alt="인증"/>
-          <Title>메종 인테리어</Title>
-        </TitleContainer>
-        <ImgContainer>
-          <ExampleImg src={ex_1} alt="1번"/>
-          <ExampleImg src={ex_2} alt="2번"/>
-        </ImgContainer>
-        <UserInfoContainer>
-          <RowWrapper>
-            <ProfileImg src={profile} alt="프로필"/>
-            <ColumnWrapper>
-              <Name>휴식같은친구</Name>
-              <Price>10만원대</Price>
-              <TagContainer>
-                <TagBox>인테리어필름</TagBox>
-                <TagBox>필름지</TagBox>
-              </TagContainer>
-            </ColumnWrapper>
-          </RowWrapper>
-          <ScoreContainer>
-            <StarImg src={star} alt="별"/>
-            3.6
-          </ScoreContainer>
-        </UserInfoContainer>
-      </RecommendBox>
-      <RecommendBox style={{ margin: "14px 0px 0px 15px" }}>
-        <TitleContainer>
-          <CheckImg src={valid} alt="인증"/>
-          <Title>GS건설</Title>
-        </TitleContainer>
-        <ImgContainer>
-          <ExampleImg src={ex_3} alt="3번"/>
-          <ExampleImg src={ex_4} alt="4번"/>
-        </ImgContainer>
-        <UserInfoContainer>
-          <RowWrapper>
-            <ProfileImg src={profile} alt="프로필"/>
-            <ColumnWrapper>
-              <Name>프로자취러</Name>
-              <Price>10만원대</Price>
-              <TagContainer>
-                <TagBox>인테리어필름</TagBox>
-                <TagBox>필름지</TagBox>
-              </TagContainer>
-            </ColumnWrapper>
-          </RowWrapper>
-          <ScoreContainer>
-            <StarImg src={star} alt="별"/>
-            3.8
-          </ScoreContainer>
-        </UserInfoContainer>
-      </RecommendBox>
+        <RecommendBox style={{ margin: "14px 0px 0px 15px" }}>
+          <TitleContainer>
+            <CheckImg src={valid} alt="인증" />
+            <Title>메종 인테리어</Title>
+          </TitleContainer>
+          <ImgContainer>
+            <ExampleImg src={ex_1} alt="1번" />
+            <ExampleImg src={ex_2} alt="2번" />
+          </ImgContainer>
+          <UserInfoContainer>
+            <RowWrapper>
+              <ProfileImg src={profile} alt="프로필" />
+              <ColumnWrapper>
+                <Name>휴식같은친구</Name>
+                <Price>10만원대</Price>
+                <TagContainer>
+                  <TagBox>인테리어필름</TagBox>
+                  <TagBox>필름지</TagBox>
+                </TagContainer>
+              </ColumnWrapper>
+            </RowWrapper>
+            <ScoreContainer>
+              <StarImg src={star} alt="별" />
+              3.6
+            </ScoreContainer>
+          </UserInfoContainer>
+        </RecommendBox>
+        <RecommendBox style={{ margin: "14px 0px 0px 15px" }}>
+          <TitleContainer>
+            <CheckImg src={valid} alt="인증" />
+            <Title>GS건설</Title>
+          </TitleContainer>
+          <ImgContainer>
+            <ExampleImg src={ex_3} alt="3번" />
+            <ExampleImg src={ex_4} alt="4번" />
+          </ImgContainer>
+          <UserInfoContainer>
+            <RowWrapper>
+              <ProfileImg src={profile} alt="프로필" />
+              <ColumnWrapper>
+                <Name>프로자취러</Name>
+                <Price>10만원대</Price>
+                <TagContainer>
+                  <TagBox>인테리어필름</TagBox>
+                  <TagBox>필름지</TagBox>
+                </TagContainer>
+              </ColumnWrapper>
+            </RowWrapper>
+            <ScoreContainer>
+              <StarImg src={star} alt="별" />
+              3.8
+            </ScoreContainer>
+          </UserInfoContainer>
+        </RecommendBox>
       </RecommendContainer>
       <NavBar />
     </Container>

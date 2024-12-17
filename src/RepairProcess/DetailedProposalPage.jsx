@@ -125,11 +125,15 @@ function DetailedProposalPage() {
     try {
       const res = await axios.post(
         `${BASE_URL}/estimate`,
-        { estimate_id: key, request_id: requestId },
+        {
+          // estimate_id: key,
+          estimate_id: 17,
+          request_id: requestId,
+        },
         { headers: { Authorization: token } }
       );
       console.log(res);
-      navigate("/successMatching")
+      navigate("/successMatching");
     } catch (error) {}
   };
 

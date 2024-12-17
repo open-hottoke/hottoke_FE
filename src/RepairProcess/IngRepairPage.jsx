@@ -272,8 +272,8 @@ const IngRepairPage = () => {
     setStage(inProgressRequestList[inProgressRequestList.length - 1].status);
   }, []);
 
-  const fetchingData = inProgressRequestList[inProgressRequestList.length - 1]
-    .vendor_details[0];
+  // const fetchingData =
+  //   inProgressRequestList[inProgressRequestList.length - 1].vendor_details[0];
 
   return (
     <>
@@ -423,15 +423,12 @@ const IngRepairPage = () => {
                       category:
                         inProgressRequestList[inProgressRequestList.length - 1]
                           .category,
-                      construction_vendor:
-                        fetchingData.vendor_name,
-                  
-                      estimate_price:
-                        fetchingData.estimate_price,
-                      estimate_time:
-                        fetchingData.estimate_time,
+                      construction_vendor: "메종 인테리어",
+
+                      estimate_price: "230000",
+                      estimate_time: "2024.11.19 오후 4시",
                       additional_comment:
-                        fetchingData.additional_comment,
+                        "업계 최고 수준 보장합니다. 합리적인 가격에 모시겠습니다",
                     },
                   })
                 }

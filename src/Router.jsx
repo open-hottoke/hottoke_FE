@@ -9,13 +9,13 @@ import RepairPage from "./RepairProcess/RepairPage";
 import RequestRepairPage from "./RepairProcess/RequestRepairPage";
 import SuccessRequestPage from "./RepairProcess/SuccessRequestPage";
 import IngRepairPage from "./RepairProcess/IngRepairPage";
-import Ttokttok_MainPage from "./ttokttok/page/ttokttok_MainPage";
-import Ttokttok_BoxPage from "./ttokttok/page/ttokttok_BoxPage";
-import Ttokttok_ProfilePage from "./ttokttok/page/ttokttok_ProfilePage";
-import Ttokttok_WritePage from "./ttokttok/page/Tttokttok_WritePage";
+import Ttokttok_MainPage from "./Ttokttok/page/Ttokttok_MainPage";
+import Ttokttok_BoxPage from "./Ttokttok/page/Ttokttok_BoxPage";
+import Ttokttok_ProfilePage from "./Ttokttok/page/Ttokttok_ProfilePage";
+import Ttokttok_WritePage from "./Ttokttok/page/Ttokttok_WritePage";
 import My_Page from "./MyPage/page/My_Page";
 import SignInPage from "./InitProcess/SignInPage";
-import Tttokttok_BoxDetailPage from "./Ttokttok/page/Tttokttok_BoxDetailPage";
+import Ttokttok_BoxDetailPage from "./Ttokttok/page/Ttokttok_BoxDetailPage";
 import SignUpPage from "./SignUpProcess/SIgnUpPage";
 import SelectProposalPage from "./RepairProcess/SelectProposalPage";
 import DetailedProposalPage from "./RepairProcess/DetailedProposalPage";
@@ -98,7 +98,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/ttokttok/box/detail/:id",
-    element: <Tttokttok_BoxDetailPage />,
+    element: <Ttokttok_BoxDetailPage />,
   },
   {
     path: "/ttokttok/write",

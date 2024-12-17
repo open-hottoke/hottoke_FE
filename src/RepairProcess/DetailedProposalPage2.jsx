@@ -19,7 +19,7 @@ const CategoryBox = styled.div`
   border-radius: 30px;
   border: 1px solid rgba(1, 210, 129, 0.3);
   background: rgba(1, 210, 129, 0.05);
-  padding: 0px 14px;
+  padding: 8px 14px;
   justify-content: center;
   align-items: center;
   color: #323232;
@@ -40,6 +40,7 @@ const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-top: 20px;
 `;
 
 const Name = styled.span`
@@ -130,10 +131,10 @@ function DetailedProposalPage2() {
   const token = useRecoilValue(authToken);
   const selectedId = location.state.selectedId;
 
+  console.log(location.state);
+
   const category = location.state.category;
-  const name = location.state.vendor_construction_vendor;
-  const phoneNumber = location.state.call_number;
-  const address = location.state.vendor_address;
+  const name = location.state.construction_vendor;
   const price = location.state.estimate_price;
   const time = location.state.estimate_time;
   const comment = location.state.additional_comment;
@@ -148,8 +149,8 @@ function DetailedProposalPage2() {
         </CategoryBox>
         <ContentContainer>
           <Name>{name}</Name>
-          <Number>{phoneNumber}</Number>
-          <Address>{address}</Address>
+          <Number>02-234-8432</Number>
+          <Address>동작대로 234 하나빌딩 2층</Address>
           <RowWrapper>
             <Label>견적 가격</Label>
             <PriceText>{price}</PriceText>

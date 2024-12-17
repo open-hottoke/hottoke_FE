@@ -74,6 +74,7 @@ const DetailImg = styled.img`
 `;
 
 function ProposalBox({
+  key,
   name,
   phoneNumber,
   address,
@@ -82,7 +83,7 @@ function ProposalBox({
   comment,
   onSelect,
   state,
-  selectedId
+  requestId
 }) {
   const navigate = useNavigate();
   return (
@@ -102,7 +103,8 @@ function ProposalBox({
         estimate_price: price,
         estimate_time: time,
         additional_comment: comment,
-        selectedId: selectedId
+        key: key,
+        requestId: requestId
       }})}>
         <Price>{price}</Price>
         <DetailImg src="/DetailButton.png" alt="디테일" />

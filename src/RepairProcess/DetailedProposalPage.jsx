@@ -110,19 +110,22 @@ function DetailedProposalPage() {
   const navigate = useNavigate();
   const token = useRecoilValue(authToken);
 
-  const selectedId = location.state.selectedId;
+  const requestId = location.state.requestId;
   const name = location.state.vendor_name;
   const phoneNumber = location.state.call_number;
   const address = location.state.vendor_address;
   const price = location.state.estimate_price;
   const time = location.state.estimate_time;
   const comment = location.state.additional_comment;
+  const key = location.state.key;
+
+  console.log(location.state);
 
   const postSelectedEstimate = async () => {
     try {
       const res = await axios.post(
         `${BASE_URL}/estimate`,
-        { estimate_id: selectedId },
+        { estimate_id: key, request_id: requestId },
         { headers: { Authorization: token } }
       );
       console.log(res);

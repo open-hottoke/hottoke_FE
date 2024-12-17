@@ -76,14 +76,17 @@ function SelectProposalPage() {
   const token = useRecoilValue(authToken);
   const location = useLocation();
   const requestId = location.state.requestId;
-  const [fetchedData, setFetchedData] = useState([]);
+  console.log("으악: ", requestId);
+  const [fetchedData, setFetchedData] = useState({});
 
   const getEstimates = async () => {
     try {
-      const res = await axios.get(`${BASE_URL}/estimate`, {
-        params: { request_id: requestId },
-        token: { Authorization: token },
-      });
+      const res = await axios.get(
+        `${BASE_URL}/estimate?request_id=${requestId}`,
+        {
+          headers: { Authorization: token },
+        }
+      );
       console.log("견적서 선택 페이지에서 가져온 데이터: ", res.data);
       setFetchedData(res.data);
     } catch (error) {
@@ -124,22 +127,29 @@ function SelectProposalPage() {
     },
   };
 
-  const transformedData = Object.entries(fetchedData.estimate_id).map(
+  const transformedData = Object.entries(fetchedData || {}).map(
     ([key, value]) => ({
       key: parseInt(key, 10),
       ...value,
     })
   );
 
+  console.log("변형된 데이터:", transformedData);
+
   const handleSelectProposal = () => {
     navigate("/detailedProposal", {
-      state: { ...transformedData[selectedId], selectedId: selectedId },
+      state: {
+        key: transformedData[selectedId].key,
+        vendor_name: transformedData[selectedId].vendor_name,
+        call_number: transformedData[selectedId].call_number,
+        vendor_address:transformedData[selectedId].vendor_address,
+        estimate_price:transformedData[selectedId].estimate_price,
+        estimate_time:transformedData[selectedId].estimate_time,
+        additional_comment:transformedData[selectedId].additional_comment,
+        requestId: requestId
+      },
     });
   };
-  console.log("견적서 상세 보기에 전달되는 데이터: ", {
-    ...transformedData[selectedId],
-    selectedId: selectedId,
-  });
 
   return (
     <Container>
@@ -155,16 +165,16 @@ function SelectProposalPage() {
           <ProposalBoxContainer>
             {transformedData.map((item, index) => (
               <ProposalBox
-                key={index}
+                key={item.key}
                 name={item.vendor_name}
                 phoneNumber={item.call_number}
                 address={item.vendor_address}
                 price={item.estimate_price}
                 time={item.estimate_time}
                 comment={item.additional_comment}
-                selectedId={selectedId}
-                onSelect={() => setSelectedId(item.key)}
-                state={index + 1 === selectedId}
+                onSelect={() => setSelectedId(index)}
+                state={index === selectedId}
+                requestId={requestId}
               />
             ))}
           </ProposalBoxContainer>

@@ -272,6 +272,9 @@ const IngRepairPage = () => {
     setStage(inProgressRequestList[inProgressRequestList.length - 1].status);
   }, []);
 
+  const fetchingData = inProgressRequestList[inProgressRequestList.length - 1]
+    .vendor_details[0];
+
   return (
     <>
       {modalVisible && (
@@ -421,23 +424,14 @@ const IngRepairPage = () => {
                         inProgressRequestList[inProgressRequestList.length - 1]
                           .category,
                       construction_vendor:
-                        inProgressRequestList[inProgressRequestList.length - 1]
-                          .construction_vendor,
-                      call_number:
-                        inProgressRequestList[inProgressRequestList.length - 1]
-                          .call_number,
-                      vendor_address:
-                        inProgressRequestList[inProgressRequestList.length - 1]
-                          .vendor_address,
+                        fetchingData.vendor_name,
+                  
                       estimate_price:
-                        inProgressRequestList[inProgressRequestList.length - 1]
-                          .estimate_price,
+                        fetchingData.estimate_price,
                       estimate_time:
-                        inProgressRequestList[inProgressRequestList.length - 1]
-                          .estimate_time,
+                        fetchingData.estimate_time,
                       additional_comment:
-                        inProgressRequestList[inProgressRequestList.length - 1]
-                          .additional_comment,
+                        fetchingData.additional_comment,
                     },
                   })
                 }

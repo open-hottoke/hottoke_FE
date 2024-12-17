@@ -149,7 +149,7 @@ const Tttokttok_BoxDetailPage = () => {
               ? location.state.anonymity
                 ? "익명"
                 : `${parseNumbers(location.state.senderId)}호`
-              : parseNumbers(location.state.receiverId)}
+              : `${parseNumbers(location.state.receiverId)}호`}
           </Value>
         </IndexAndValue>
         <IndexAndValue>

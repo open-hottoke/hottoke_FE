@@ -267,11 +267,11 @@ const RepairPage = () => {
         </RequestRepairBox>
         {
           <GradientBox
-            onClick={() =>
+            onClick={() => {
               navigate("/ingRepairPage", {
                 state: { idList: requestInProgressId },
-              })
-            }
+              });
+            }}
           >
             현재 진행 중인 수리 {requestInProgressId.length}건{" "}
             <WhiteArrowImg src={WhiteArrow} />

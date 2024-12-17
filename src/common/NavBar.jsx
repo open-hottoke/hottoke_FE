@@ -88,10 +88,11 @@ const NavBar = () => {
       setActiveNav(2);
     } else if (location.pathname.startsWith("/repairPage")) {
       setActiveNav(3);
-    } else if (location.pathname.startsWith("/myPage")) {
-      setActiveNav(4);
     } else if (location.pathname.startsWith("/main")) {
       setActiveNav(1);
+    } else if (location.pathname.startsWith("/myPage")) {
+      alert("준비 중인 서비스입니다.");
+      // setActiveNav(4);
     }
   }, [location]);
 
@@ -158,7 +159,7 @@ const NavBar = () => {
           </IconTxtWrapper>
         </NavLink>
       </Link>
-      <Link to="/myPage" className="nav-link">
+      {/* <Link to="/myPage" className="nav-link">
         <NavLink
           className={
             location.pathname === "/myPage"
@@ -174,7 +175,14 @@ const NavBar = () => {
             <Text state={activeNav === 4}>마이</Text>
           </IconTxtWrapper>
         </NavLink>
-      </Link>
+      </Link> */}
+      <IconTxtWrapper>
+        <IconWrapper>
+          {activeNav === 4 ? <MyIcn></MyIcn> : <OffMyIcn></OffMyIcn>}
+        </IconWrapper>
+
+        <Text state={activeNav === 4}>마이</Text>
+      </IconTxtWrapper>
     </Container>
   );
 };

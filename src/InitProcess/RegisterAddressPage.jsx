@@ -95,12 +95,11 @@ const AddressList = styled.div`
   }
 
   &::-webkit-scrollbar-thumb {
-    background: #01d281; /* 스크롤바 색상 */
     border-radius: 10px; /* 스크롤바 둥근 테두리 */
   }
 
   &::-webkit-scrollbar-track {
-    background: rgba(43, 50, 41, 0.1); /*스크롤바 뒷 배경 색상*/
+    background: transparent;
   }
 `;
 

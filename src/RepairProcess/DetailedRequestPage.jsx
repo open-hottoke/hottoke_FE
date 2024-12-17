@@ -44,9 +44,8 @@ const WhiteBox = styled.div`
   }
 
   &::-webkit-scrollbar-track {
-    background-color: #716e6e;
+    background: transparent;
   }
-  
 `;
 
 const AiBox = styled.div`
@@ -125,7 +124,6 @@ const CircledTimeContainer = styled.div`
   flex-wrap: wrap;
   justify-content: flex-end;
   gap: 4px;
-
 `;
 
 const CircledTime = styled.div`
@@ -155,7 +153,6 @@ const TimeOutlineBox = styled.div`
   gap: 10px;
   align-items: flex-start;
   align-self: stretch;
-
 `;
 
 const BlueTextBtn = styled.span`
@@ -243,7 +240,6 @@ const DetailedRequest = () => {
       <WhiteBox>
         <div>
           <Title>{data.category}</Title>
-          
         </div>
         <RowWrapper>
           <LeftFont>요청 날짜</LeftFont>

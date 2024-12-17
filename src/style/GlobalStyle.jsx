@@ -58,6 +58,23 @@ const GlobalStyle = createGlobalStyle`
   min-height: 100vh;
   background-color: #F5F6F6;
   }
+
+  &::-webkit-scrollbar {
+      width: 2px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+      background-color: #9a9a9a;
+      width: 2px;
+  }
+
+  &::-webkit-scrollbar {
+    background-color: #ffffff;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #ffffff;
+  }
   
   // font 종류
 .h1 {

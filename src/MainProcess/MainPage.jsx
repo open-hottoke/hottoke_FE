@@ -30,7 +30,7 @@ const ScrollWrapper = styled.div`
   }
 
   &::-webkit-scrollbar-track {
-    background-color: #716e6e;
+    background: transparent;
   }
 `;
 

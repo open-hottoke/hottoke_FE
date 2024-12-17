@@ -17,12 +17,11 @@ const ViewContainer = styled(Container)`
   }
 
   &::-webkit-scrollbar-thumb {
-    background: #01d281; /* 스크롤바 색상 */
     border-radius: 10px; /* 스크롤바 둥근 테두리 */
   }
 
   &::-webkit-scrollbar-track {
-    background: rgba(43, 50, 41, 0.1); /*스크롤바 뒷 배경 색상*/
+    background: transparent;
   }
 `;
 
@@ -219,15 +218,27 @@ const times = [
 ];
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
-const WriteRequest = ({ onComplete, formData, previewPhotos, setPreviewPhotos }) => {
+const WriteRequest = ({
+  onComplete,
+  formData,
+  previewPhotos,
+  setPreviewPhotos,
+}) => {
   const token = useRecoilValue(authToken);
 
-  useEffect(() => { if (formData.category && formData.request_image.length > 0 && formData.request_description && formData.construction_date) {
-    setSelectedOption(formData.category);
-    setPhotos(formData.request_image);
-    setDescription(formData.request_description);
-    setSelectedTimes(formData.construction_date);
-  }}, [])
+  useEffect(() => {
+    if (
+      formData.category &&
+      formData.request_image.length > 0 &&
+      formData.request_description &&
+      formData.construction_date
+    ) {
+      setSelectedOption(formData.category);
+      setPhotos(formData.request_image);
+      setDescription(formData.request_description);
+      setSelectedTimes(formData.construction_date);
+    }
+  }, []);
 
   // 1. 분야 선택 관련
   const [selectedOption, setSelectedOption] = useState("");
@@ -238,58 +249,63 @@ const WriteRequest = ({ onComplete, formData, previewPhotos, setPreviewPhotos })
   const convertToJpeg = async (file) => {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
-  
+
       reader.onload = (event) => {
         const img = new Image();
-  
+
         img.onload = () => {
           const canvas = document.createElement("canvas");
           const ctx = canvas.getContext("2d");
-  
+
           // 캔버스 크기를 이미지 크기로 설정
           canvas.width = img.width;
           canvas.height = img.height;
-  
+
           // 이미지 캔버스에 그리기
           ctx.drawImage(img, 0, 0);
-  
+
           // JPEG Blob 생성
           canvas.toBlob(
             (blob) => {
               // Blob을 File 객체로 변환
-              const jpegFile = new File([blob], `${file.name.split(".")[0]}.jpg`, {
-                type: "image/jpeg",
-                lastModified: Date.now(),
-              });
+              const jpegFile = new File(
+                [blob],
+                `${file.name.split(".")[0]}.jpg`,
+                {
+                  type: "image/jpeg",
+                  lastModified: Date.now(),
+                }
+              );
               resolve(jpegFile);
             },
             "image/jpeg",
             0.9 // JPEG 품질 (0.0 ~ 1.0)
           );
         };
-  
+
         img.onerror = reject;
         img.src = event.target.result;
       };
-  
+
       reader.onerror = reject;
       reader.readAsDataURL(file);
     });
   };
-  
 
   const handlePhotoUpload = async (e) => {
     const files = Array.from(e.target.files);
-    const jpegFiles = await Promise.all(files.map((file) => convertToJpeg(file)));
-    const newPhotos = jpegFiles.map((item) => (item.name));
-    const photoPreviews = jpegFiles.map((file) => (
-      URL.createObjectURL(file) // Blob URL 생성
-    ));
+    const jpegFiles = await Promise.all(
+      files.map((file) => convertToJpeg(file))
+    );
+    const newPhotos = jpegFiles.map((item) => item.name);
+    const photoPreviews = jpegFiles.map(
+      (file) => URL.createObjectURL(file) // Blob URL 생성
+    );
 
     setPreviewPhotos((prev) => [...prev, ...photoPreviews].slice(0, 10));
     setPhotos((prev) => [...prev, ...newPhotos].slice(0, 10)); // 최대 10장 제한
   };
-console.log("newPhotos: ", photos);
+  console.log("newPhotos: ", photos);
   // 3. 증상 설명 관련
   const [description, setDescription] = useState("");
 
@@ -382,7 +398,7 @@ console.log("newPhotos: ", photos);
           </SmallFont>
         </div>
 
-        <div style={{width: "100%"}}>
+        <div style={{ width: "100%" }}>
           <SmallFont style={{ textAlign: "left" }}>증상 사진</SmallFont>
           <PhotoUploadBox style={{ marginTop: "6px" }}>
             {previewPhotos.map((photo, index) => (

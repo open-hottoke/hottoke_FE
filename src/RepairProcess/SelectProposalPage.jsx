@@ -65,7 +65,7 @@ const ProposalBoxContainer = styled.div`
   }
 
   &::-webkit-scrollbar-track {
-    background: rgba(43, 50, 41, 0.1); /*스크롤바 뒷 배경 색상*/
+    background: transparent;
   }
 `;
 

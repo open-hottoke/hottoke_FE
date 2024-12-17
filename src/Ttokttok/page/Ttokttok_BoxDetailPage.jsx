@@ -116,6 +116,18 @@ const Tttokttok_BoxDetailPage = () => {
   const location = useLocation();
   console.log(location.state.type);
 
+  function parseNumbers(input) {
+    if (input >= 1 && input <= 5) {
+      return input + 100; // 1 → 101, 2 → 102, ..., 5 → 105
+    } else if (input >= 6 && input <= 10) {
+      return input + 195; // 6 → 201, 7 → 202, ..., 10 → 205
+    } else if (input >= 11 && input <= 15) {
+      return input + 290; // 11 → 301, 12 → 302, ..., 15 → 305
+    } else {
+      return null; // 범위를 벗어나는 경우 null 반환
+    }
+  }
+
   let imgSrc =
     TagArray.find((item) => item.string === location.state.tag)?.src ?? ".";
 
@@ -132,7 +144,13 @@ const Tttokttok_BoxDetailPage = () => {
       <ContentContainer>
         <IndexAndValue>
           <Title>보낸 이웃</Title>
-          <Value>{location.state.senderId || location.state.receiverId}</Value>
+          <Value>
+            {location.state.type === "receive"
+              ? location.state.anonymity
+                ? "익명"
+                : `${parseNumbers(location.state.senderId)}호`
+              : parseNumbers(location.state.receiverId)}
+          </Value>
         </IndexAndValue>
         <IndexAndValue>
           <Title>날짜</Title>
@@ -162,11 +180,16 @@ const Tttokttok_BoxDetailPage = () => {
             <div className="Caption1">{location.state.content}</div>
           </DescriptBox>
         </IndexAndValue>
-        {location.state.type === "receive" ? (
+        {location.state.type === "receive" && !location.state.anonymity ? (
           <ButtonWrapper>
             <SendButton>
               <img src={PencilIcn} style={{ width: 12 }} />
-              <div className="button3">401호에 답장하기</div>
+              <div className="button3">
+                {" "}
+                {parseNumbers(location.state.senderId) ||
+                  parseNumbers(location.state.receiverId)}
+                호에 답장하기
+              </div>
             </SendButton>
           </ButtonWrapper>
         ) : (

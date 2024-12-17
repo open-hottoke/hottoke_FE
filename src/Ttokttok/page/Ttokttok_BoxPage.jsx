@@ -163,7 +163,9 @@ const Ttokttok_BoxPage = () => {
           </Toggle>
         </ToggleContainer>
         <IndexContainer>
-          <div className="button3">보낸 이웃</div>
+          <div className="button3">
+            {toggleState === 0 ? "보낸 이웃" : "받은 이웃"}
+          </div>
           <div className="button3">내용</div>
           <div className="button3">날짜</div>
         </IndexContainer>
@@ -182,7 +184,9 @@ const Ttokttok_BoxPage = () => {
                   }
                 >
                   <div style={{ color: "black" }} className="button2">
-                    {parseNumbers(entry.senderId)}
+                    {entry.anonymity
+                      ? "익명"
+                      : `${parseNumbers(entry.senderId)}호`}
                   </div>
                   <div
                     style={{ color: "black", textAlign: "center", flex: 1 }}
@@ -208,7 +212,7 @@ const Ttokttok_BoxPage = () => {
                   }
                 >
                   <div style={{ color: "black" }} className="button2">
-                    {parseNumbers(entry.receiverId)}
+                    {parseNumbers(entry.receiverId)}호
                   </div>
                   <div
                     style={{ color: "black", textAlign: "center" }}

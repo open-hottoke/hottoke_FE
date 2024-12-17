@@ -135,10 +135,7 @@ const Ttokttok_BoxPage = () => {
     fetchSend();
   }, []);
 
-  useEffect(() => {
-    console.log(sendTtokttok);
-    console.log(receiveTtokttok);
-  }, [sendTtokttok, receiveTtokttok]);
+  useEffect(() => {}, [sendTtokttok, receiveTtokttok]);
 
   if (receiveTtokttok != {} && sendTtokttok != {})
     return (
@@ -171,7 +168,7 @@ const Ttokttok_BoxPage = () => {
                   }
                 >
                   <div style={{ color: "black" }} className="button2">
-                    {entry.senderId}
+                    {entry.senderId * 100 + entry.senderId}
                   </div>
                   <div
                     style={{ color: "black", textAlign: "center", flex: 1 }}
@@ -196,7 +193,7 @@ const Ttokttok_BoxPage = () => {
                   }
                 >
                   <div style={{ color: "black" }} className="button2">
-                    {entry.receiverId}
+                    {(entry.receiverId / 5) * 100 + (entry.receiverId % 5)}
                   </div>
                   <div
                     style={{ color: "black", textAlign: "center" }}

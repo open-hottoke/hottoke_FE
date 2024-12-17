@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { useRecoilState } from "recoil";
 import { authToken } from "../store/authToken";
 import { useNavigate } from "react-router-dom";
+import Logo from "../../public/logo.png";
 
 const ViewContainer = styled(Container)`
   padding: 0px 20px;
@@ -135,7 +136,15 @@ function SignInPage() {
   console.log(inputState);
   return (
     <ViewContainer>
-      <ServiceLogo>Service Name logo</ServiceLogo>
+      <img
+        style={{
+          marginTop: 50,
+          marginLeft: 15,
+          width: 250,
+          objectFit: "cover",
+        }}
+        src={Logo}
+      />
       <Title>로그인</Title>
       <DefaultLoginContainer>
         <Input
@@ -161,8 +170,9 @@ function SignInPage() {
           buttonText="로그인하기"
         />
       </BtnWrapper>
-      <SignUpTextBtn onClick={() => navigate("/signupPage")}>회원가입</SignUpTextBtn>
-
+      <SignUpTextBtn onClick={() => navigate("/signupPage")}>
+        회원가입
+      </SignUpTextBtn>
     </ViewContainer>
   );
 }

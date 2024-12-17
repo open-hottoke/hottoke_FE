@@ -8,6 +8,8 @@ import { authToken } from "../store/authToken";
 import { useRecoilValue } from "recoil";
 import axios from "axios";
 import WhiteArrow from "../assets/WhiteArrow.png";
+import GS from "../assets/gs.jpg";
+import MESONG from "../assets/mesong.jpg";
 
 const Title = styled.div`
   color: var(--GrayScale-Gray-800, #1f1f1f);
@@ -87,7 +89,12 @@ const WhiteArrowImg = styled.img`
   width: 6px;
   height: 10.5px;
   cursor: pointer;
-`
+`;
+
+const DummyImg = styled.img`
+  height: 210px;
+  object-fit: cover;
+`;
 
 const RepairPage = () => {
   const BASE_URL = import.meta.env.VITE_BASE_URL;
@@ -116,7 +123,16 @@ const RepairPage = () => {
   }, []);
 
   return (
-    <Container className="MainProcess">
+    <Container
+      style={{
+        overflowX: "hidden",
+        overflowY: "scroll",
+        marginBottom: 45,
+        backgroundColor: "white",
+        height: "auto",
+      }}
+      className="MainProcess"
+    >
       <RoundBox style={{ padding: "64px 24px 28px 24px" }}>
         <RowWrapper style={{ margin: "0px 4px" }}>
           <Title>수리/공사</Title>
@@ -148,14 +164,19 @@ const RepairPage = () => {
           <TinyFont style={{ textAlign: "left" }}>
             수리 요청서를 작성하면 근처 업체로부터 견적을 받아볼 수 있어요.
           </TinyFont>
-          
         </RequestRepairBox>
         {
-            <GradientBox onClick={() => navigate("/ingRepairPage", {state: { idList : requestInProgressId}})}>
-              현재 진행 중인 수리 {requestInProgressId.length}건{" "}
-              <WhiteArrowImg src={WhiteArrow} />
-            </GradientBox>
-          }
+          <GradientBox
+            onClick={() =>
+              navigate("/ingRepairPage", {
+                state: { idList: requestInProgressId },
+              })
+            }
+          >
+            현재 진행 중인 수리 {requestInProgressId.length}건{" "}
+            <WhiteArrowImg src={WhiteArrow} />
+          </GradientBox>
+        }
         {/* 현재 진행중인 수리  */}
       </RoundBox>
       <Title style={{ margin: "50px 0px 0px 28px" }}>
@@ -164,7 +185,23 @@ const RepairPage = () => {
       <SmallFont style={{ margin: "3px 0px 0px 28px" }}>
         이런 업체는 어떠세요?
       </SmallFont>
-      <RecommandBox style={{ margin: "14px 0px 0px 15px" }} />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "flex-start",
+          gap: 5,
+          overflow: "hidden",
+          marginLeft: 20,
+          marginTop: 10,
+          alignItems: "center",
+        }}
+      >
+        <DummyImg src={MESONG} />
+        <DummyImg src={GS} />
+      </div>
+
+      {/* <RecommandBox style={{ margin: "14px 0px 0px 15px" }} /> */}
       <NavBar />
     </Container>
   );

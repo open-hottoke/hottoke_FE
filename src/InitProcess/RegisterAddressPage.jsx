@@ -96,10 +96,12 @@ const AddressList = styled.div`
 
   &::-webkit-scrollbar-thumb {
     border-radius: 10px; /* 스크롤바 둥근 테두리 */
+    background: #1d1d1d;
   }
 
   &::-webkit-scrollbar-track {
     background: transparent;
+    background-color: #716e6e;
   }
 `;
 

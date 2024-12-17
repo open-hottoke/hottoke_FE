@@ -56,16 +56,16 @@ const ProposalBoxContainer = styled.div`
   padding: 4px 0px;
   margin-bottom: 30px;
   &::-webkit-scrollbar {
-    width: 0px;
+    width: 2px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background: #01d281; /* 스크롤바 색상 */
+    background: #1d1d1d; /* 스크롤바 색상 */
     border-radius: 10px; /* 스크롤바 둥근 테두리 */
   }
 
   &::-webkit-scrollbar-track {
-    background: transparent;
+    background-color: #716e6e;
   }
 `;
 

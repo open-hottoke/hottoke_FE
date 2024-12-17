@@ -137,6 +137,19 @@ const Ttokttok_BoxPage = () => {
 
   useEffect(() => {}, [sendTtokttok, receiveTtokttok]);
 
+  function parseNumbers(input) {
+    if (input >= 1 && input <= 5) {
+      return input + 100; // 1 → 101, 2 → 102, ..., 5 → 105
+    } else if (input >= 6 && input <= 10) {
+      return input + 195; // 6 → 201, 7 → 202, ..., 10 → 205
+    } else if (input >= 11 && input <= 15) {
+      return input + 290; // 11 → 301, 12 → 302, ..., 15 → 305
+    } else {
+      return null; // 범위를 벗어나는 경우 null 반환
+    }
+  }
+
+  console.log(receiveTtokttok != {});
   if (receiveTtokttok != {} && sendTtokttok != {})
     return (
       <Container className="Ttokttok">
@@ -158,6 +171,7 @@ const Ttokttok_BoxPage = () => {
           {toggleState === 0
             ? Object.entries(receiveTtokttok).map(([id, entry]) => (
                 <Content
+                  key={id}
                   onClick={() =>
                     navigate(`/ttokttok/box/detail/${id}`, {
                       state: {
@@ -168,7 +182,7 @@ const Ttokttok_BoxPage = () => {
                   }
                 >
                   <div style={{ color: "black" }} className="button2">
-                    {entry.senderId * 100 + entry.senderId}
+                    {parseNumbers(entry.senderId)}
                   </div>
                   <div
                     style={{ color: "black", textAlign: "center", flex: 1 }}
@@ -183,6 +197,7 @@ const Ttokttok_BoxPage = () => {
               ))
             : Object.entries(sendTtokttok).map(([id, entry]) => (
                 <Content
+                  key={id}
                   onClick={() =>
                     navigate(`/ttokttok/box/detail/${id}`, {
                       state: {
@@ -193,7 +208,7 @@ const Ttokttok_BoxPage = () => {
                   }
                 >
                   <div style={{ color: "black" }} className="button2">
-                    {(entry.receiverId / 5) * 100 + (entry.receiverId % 5)}
+                    {parseNumbers(entry.receiverId)}
                   </div>
                   <div
                     style={{ color: "black", textAlign: "center" }}

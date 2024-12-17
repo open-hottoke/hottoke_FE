@@ -9,6 +9,8 @@ import { transformDate } from "../functions/transformDate";
 import { authToken } from "../store/authToken";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import img_1 from "../assets/image33.png";
+import img_2 from "../assets/HotImg_2.jpeg";
 
 const Title = styled.div`
   color: var(--GrayScale-Gray-800, #1f1f1f);
@@ -27,25 +29,11 @@ const RowWrapper = styled.div`
 const WhiteBox = styled.div`
   display: flex;
   padding: 30px 24px;
-  height: 100%;
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
   align-self: stretch;
-  overflow-y: auto;
   background: var(--Basic-White, #fff);
-  &::-webkit-scrollbar {
-    width: 2px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: #1d1d1d; /* 스크롤바 색상 */
-    border-radius: 10px; /* 스크롤바 둥근 테두리 */
-  }
-
-  &::-webkit-scrollbar-track {
-    background: transparent;
-  }
 `;
 
 const AiBox = styled.div`
@@ -163,6 +151,31 @@ const BlueTextBtn = styled.span`
   cursor: pointer;
 `;
 
+const TempContainer = styled(Container)`
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  text-align: center;
+  margin: 0;
+  min-height: 100vh;
+  background-color: #F5F6F6;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 2px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #1d1d1d; /* 스크롤바 색상 */
+    border-radius: 10px; /* 스크롤바 둥근 테두리 */
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: #716e6e;
+  }
+`;
+
 // 날짜 포맷 함수
 const formatDate = (date) => {
   const year = date.getFullYear();
@@ -232,7 +245,7 @@ const DetailedRequest = () => {
   }, []);
 
   return (
-    <Container className="MainProcess" style={{ overflow: "auto" }}>
+    <TempContainer >
       <div style={{ backgroundColor: "white", width: "100%" }}>
         <Header headerTitle="요청상세" />
       </div>
@@ -254,19 +267,26 @@ const DetailedRequest = () => {
           <RowWrapper>
             <div />
             <RightFont>
-              {data.request_image.map((photo, index) => (
-                <img
-                  key={index}
-                  src={photo}
-                  alt={`증상 사진 ${index + 1}`}
-                  style={{
-                    width: "80px",
-                    height: "80px",
-                    marginRight: "6px",
-                    borderRadius: "6px",
-                  }}
-                />
-              ))}
+              <img
+                src={img_1}
+                alt={"증상 사진 1"}
+                style={{
+                  width: "80px",
+                  height: "80px",
+                  marginRight: "6px",
+                  borderRadius: "6px",
+                }}
+              />
+              <img
+                src={img_2}
+                alt={"증상 사진 2"}
+                style={{
+                  width: "80px",
+                  height: "80px",
+                  marginRight: "6px",
+                  borderRadius: "6px",
+                }}
+              />
             </RightFont>
           </RowWrapper>
         </BinBox>
@@ -290,7 +310,7 @@ const DetailedRequest = () => {
           </TimeBoxContainer>
         </BinBox>
       </WhiteBox>
-    </Container>
+    </TempContainer>
   );
 };
 

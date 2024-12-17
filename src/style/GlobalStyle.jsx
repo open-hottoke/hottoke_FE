@@ -57,10 +57,12 @@ const GlobalStyle = createGlobalStyle`
   margin: 0;
   min-height: 100vh;
   background-color: #F5F6F6;
+  overflow-y: auto;
+  padding-bottom: 100px;
   }
 
   &::-webkit-scrollbar {
-      width: 2px;
+      width: 0px;
   }
 
   &::-webkit-scrollbar-thumb {

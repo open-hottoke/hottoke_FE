@@ -95,7 +95,7 @@ const MonthlyHistory = styled(RecentYearMonth)`
 const MonthlyCostList = styled.div`
   display: flex;
   width: 100%;
-  height: 100%;
+  height: 370px;
   flex-direction: column;
   align-items: flex-start;
   gap: 14px;

@@ -250,8 +250,8 @@ const IngRepairPage = () => {
   function formatDate(isoDateString) {
     const date = new Date(isoDateString);
     const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0'); // 월은 0부터 시작하므로 +1
-    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, "0"); // 월은 0부터 시작하므로 +1
+    const day = String(date.getDate()).padStart(2, "0");
     return `${year}.${month}.${day}`;
   }
 
@@ -274,45 +274,47 @@ const IngRepairPage = () => {
 
   return (
     <>
-      {modalVisible && <Modal open={modalVisible} onClose={() => setModalVisible(false)}>
-        <ModalBody>
-          <StepContainer>
-            <GreenText>STEP 1</GreenText>
-            <StageName>업체 찾는 중</StageName>
-            <Content>
-              제출하신 요청서를 바탕으로 업체에서 견적서를 작성중이에요! 잠시
-              기다려주시면 합리적인 견적서를 찾아드릴게요.
-            </Content>
-          </StepContainer>
-          <StepContainer>
-            <GreenText>STEP 2</GreenText>
-            <StageName>비용 분담</StageName>
-            <Content>
-              호스트가 수리요청서와 견적서를 바탕으로 누가 비용을 부담할지
-              결정하고 있어요!
-            </Content>
-            <SubContent>
-              일반적인 비용 부담 사례를 알려드릴게요. 세입자는 작은 결함을
-              포함하여 관리 소홀이나 부주의로 생긴 고장 비용을 부담해요.
-              집주인은 보일러, 수도관 고장을 포함한 큰 결함을 부담해요!
-            </SubContent>
-          </StepContainer>
-          <StepContainer>
-            <GreenText>STEP 3</GreenText>
-            <StageName>업체 매칭</StageName>
-            <Content>
-              업체 매칭이 완료됐어요! 곧 수리 기사님이 방문하실 예정이에요.
-            </Content>
-          </StepContainer>
-          <StepContainer>
-            <GreenText>STEP 4</GreenText>
-            <StageName>업체 찾는 중</StageName>
-            <Content>
-              수리가 완료됐어요! 만족스러우셨나요? 앞으로도 핫케톡에서 만나요!
-            </Content>
-          </StepContainer>
-        </ModalBody>
-      </Modal>}
+      {modalVisible && (
+        <Modal open={modalVisible} onClose={() => setModalVisible(false)}>
+          <ModalBody>
+            <StepContainer>
+              <GreenText>STEP 1</GreenText>
+              <StageName>업체 찾는 중</StageName>
+              <Content>
+                제출하신 요청서를 바탕으로 업체에서 견적서를 작성중이에요! 잠시
+                기다려주시면 합리적인 견적서를 찾아드릴게요.
+              </Content>
+            </StepContainer>
+            <StepContainer>
+              <GreenText>STEP 2</GreenText>
+              <StageName>비용 분담</StageName>
+              <Content>
+                호스트가 수리요청서와 견적서를 바탕으로 누가 비용을 부담할지
+                결정하고 있어요!
+              </Content>
+              <SubContent>
+                일반적인 비용 부담 사례를 알려드릴게요. 세입자는 작은 결함을
+                포함하여 관리 소홀이나 부주의로 생긴 고장 비용을 부담해요.
+                집주인은 보일러, 수도관 고장을 포함한 큰 결함을 부담해요!
+              </SubContent>
+            </StepContainer>
+            <StepContainer>
+              <GreenText>STEP 3</GreenText>
+              <StageName>업체 매칭</StageName>
+              <Content>
+                업체 매칭이 완료됐어요! 곧 수리 기사님이 방문하실 예정이에요.
+              </Content>
+            </StepContainer>
+            <StepContainer>
+              <GreenText>STEP 4</GreenText>
+              <StageName>업체 찾는 중</StageName>
+              <Content>
+                수리가 완료됐어요! 만족스러우셨나요? 앞으로도 핫케톡에서 만나요!
+              </Content>
+            </StepContainer>
+          </ModalBody>
+        </Modal>
+      )}
       <Container className="InitProcess">
         <GreenBox>
           <Header headerTitle="진행중인 수리" />
@@ -326,7 +328,12 @@ const IngRepairPage = () => {
               />
             </RowWrapper>
             <RowWrapper style={{ margin: "15px 0px 6px 0px" }}>
-              <Title>기타 - 해충방제</Title>
+              <Title>
+                {
+                  inProgressRequestList[inProgressRequestList.length - 1]
+                    .category
+                }
+              </Title>
               <div
                 style={{
                   display: "flex",
@@ -348,7 +355,13 @@ const IngRepairPage = () => {
                 <img src="/DetailButton.png" width="4px" />
               </div>
             </RowWrapper>
-            <SmallFont style={{ textAlign: "left" }}>2024.10.13 요청</SmallFont>
+            <SmallFont style={{ textAlign: "left" }}>
+              $
+              {inProgressRequestList[
+                inProgressRequestList.length - 1
+              ].date.slice(0, 10)}{" "}
+              요청
+            </SmallFont>
             <RowWrapper style={{ margin: "28px 0px" }}>
               <CircleState state={stage === 0}>
                 업체
